@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Registro Admin</title>
+  <link rel="stylesheet" href="admin-registro.component.css">
+</head>
+<body>
+  <div class="screen screen-login">
+    <div class="overlay">
+      <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+        <h2>¿Nuevo Aquí?</h2>
+        <p>Rellena este formulario</p>
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" formControlName="nombre" placeholder="Ingresa tu nombre" (keypress)="validateAlpha($event)">
+            <div *ngIf="registroForm.get('nombre')?.invalid && registroForm.get('nombre')?.touched">
+              <small *ngIf="registroForm.get('nombre')?.errors?.['required']">El nombre es requerido.</small>
+              <small *ngIf="registroForm.get('nombre')?.errors?.['maxlength']">El nombre no puede tener más de 10 caracteres.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" formControlName="email" placeholder="example@etesla.mx">
+            <div *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
+              <small *ngIf="registroForm.get('email')?.errors?.['required']">El email es requerido.</small>
+              <small *ngIf="registroForm.get('email')?.errors?.['email']">El formato del email es inválido.</small>
+              <small *ngIf="registroForm.get('email')?.errors?.['pattern']">El dominio del email debe ser etesla.mx.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" formControlName="contraseña" placeholder="**********">
+            <div *ngIf="registroForm.get('contraseña')?.invalid && registroForm.get('contraseña')?.touched">
+              <small *ngIf="registroForm.get('contraseña')?.errors?.['required']">La contraseña es requerida.</small>
+              <small *ngIf="registroForm.get('contraseña')?.errors?.['minlength']">La contraseña debe tener 8 caracteres.</small>
+              <small *ngIf="registroForm.get('contraseña')?.errors?.['maxlength']">La contraseña debe tener 8 caracteres.</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sucursal">Sucursal:</label>
+            <select id="sucursal" formControlName="sucursal" placeholder="Selecciona tu socursal">
+              <option value="placeholder">Selecciona tu sucursal</option>
+              <option value="sucursal1">Veracruz</option>
+              <option value="sucursal2">Puebla</option>
+              <option value="sucursal3">CDMX</option>
+            </select>
+            <div *ngIf="registroForm.get('sucursal')?.invalid && registroForm.get('sucursal')?.touched">
+              <small *ngIf="registroForm.get('sucursal')?.errors?.['required']">La sucursal es requerida.</small>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button type="submit" [disabled]="registroForm.invalid">Registrarse</button>
+          <button type="button" [routerLink]="['/AdminLogin']">Iniciar Sesión</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Registro Admin</title>
+  <link rel="stylesheet" href="admin-login.component.css">
+</head>
+<body>
+  <div class="screen screen-login">
+    <div class="overlay">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h2>¡Hola de Nuevo!</h2>
+        <p>Rellena este formulario con tus credenciales</p>
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" formControlName="nombre" placeholder="Ingresa tu nombre" (keypress)="validateAlpha($event)">
+            <div *ngIf="loginForm.get('nombre')?.invalid && loginForm.get('nombre')?.touched">
+              <small *ngIf="loginForm.get('nombre')?.errors?.['required']">El nombre es requerido.</small>
+              <small *ngIf="loginForm.get('nombre')?.errors?.['maxlength']">El nombre no puede tener más de 10 caracteres.</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" formControlName="contraseña" placeholder="**********">
+            <div *ngIf="loginForm.get('contraseña')?.invalid && loginForm.get('contraseña')?.touched">
+              <small *ngIf="loginForm.get('contraseña')?.errors?.['required']">La contraseña es requerida.</small>
+              <small *ngIf="loginForm.get('contraseña')?.errors?.['minlength']">La contraseña debe tener 8 caracteres.</small>
+              <small *ngIf="loginForm.get('contraseña')?.errors?.['maxlength']">La contraseña debe tener 8 caracteres.</small>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+          <button type="button" [routerLink]="['/AdminRegistro']">Registrarse</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
