@@ -1,109 +1,53 @@
-body, html {
-    margin: 0;
+.container-fluid {
     padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
-.screen {
-    position: relative;
+  }
+  
+  .image-side {
+    padding: 0;
+  }
+  
+  .image-side img {
     width: 100%;
     height: 100vh;
-    background: url('https://etesla.mx/wp-content/uploads/2023/11/etesla_industrial.png') center/cover;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+  }
+  
+  .form-side {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-form {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px; /* Ajustar el ancho máximo para evitar que el formulario sea demasiado ancho */
-    width: 90%; /* Usar un ancho del 90% para mantener la flexibilidad del diseño */
-    margin: 0 auto; /* Centrar el formulario horizontalmente */
-}
-
-.form-group {
-    margin-bottom: 20px; /* Espaciado entre grupos de campos */
-    text-align: left; /* Alinear el texto de las etiquetas de los campos a la izquierda */
-}
-
-
-form h2 {
-    margin-top: 0;
-    font-size: 2.5em;
-}
-
-form p {
-    font-size: 1.2em;
-    margin: 20px 0;
-}
-
-.form-group {
-    margin-bottom: 20px; /* Espaciado entre grupos de campos */
-}
-
-.form-group-row {
-    display: flex;
-    justify-content: space-between;
-}
-
-.form-group-half {
-    width: 48%; /* Usar el 48% para dejar espacio para el margen entre los cuadros de entrada */
-}
-
-form input {
-    display: block;
-    width: 90%;
-    padding: 10px;
-    border: none; /* Eliminar el borde para tener bordes circulares */
-    border-radius: 20px; /* Establecer el radio de borde para hacerlo circular */
-    background-color: #f0f0f0; /* Cambiar el color de fondo para distinguir los cuadros de entrada */
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.buttons button {
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1em;
-    width: 500%; /* Establecer el ancho al 100% para que coincida con el ancho de los cuadros de entrada */
-    box-sizing: border-box; /* Incluir el padding en el cálculo del tamaño total */
-}
-
-.buttons button[type="submit"] {
-    background: #4CAF50;
-    color: white;
-}
-
-.buttons button[type="button"] {
-    background: #f0f0f0;
-}
-
-.form-group select {
-    display: block;
+    padding: 30px;
+  }
+  
+  .form-container {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    background-color: #f0f0f0;
-}
+    max-width: 400px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .btn-block {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .text-center {
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .image-side {
+      display: none;
+    }
+  
+    .form-side {
+      padding: 15px;
+    }
+  }
+  

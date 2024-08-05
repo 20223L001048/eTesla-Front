@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button type="submit" [disabled]="registroForm.invalid">Registrarse</button>
+                    <button type="submit" [routerLink]="['/PanelVentas']" [disabled]="registroForm.invalid">Registrarse</button>
                     <button type="button" [routerLink]="['/AdminRegistro']">Iniciar Sesión</button>
                 </div>
             </form>

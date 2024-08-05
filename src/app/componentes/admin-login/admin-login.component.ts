@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -8,19 +9,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AdminLoginComponent {
   loginForm: FormGroup;
-  registroForm: any;
-  router: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$'), Validators.maxLength(10)]],
-      contraseña: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]]
+      branch: ['', Validators.required],
+      contraseña: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+      rememberMe: [false]
     });
   }
 
   onSubmit() {
-    if (this.registroForm.valid) {
-      console.log('Formulario válido', this.registroForm.value);
+    if (this.loginForm.valid) {
+      console.log('Formulario válido', this.loginForm.value);
       this.router.navigate(['/PanelAdmin']);
     } else {
       console.log('Formulario no válido');
@@ -35,5 +36,16 @@ export class AdminLoginComponent {
       event.preventDefault();
       return false;
     }
+  }
+
+  validateDomain(control: any) {
+    const email = control.value;
+    if (email && email.indexOf('@') != -1) {
+      const [_, domain] = email.split('@');
+      if (domain !== 'vendedor.mx') {
+        return { domain: true };
+      }
+    }
+    return null;
   }
 }

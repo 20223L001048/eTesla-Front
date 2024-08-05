@@ -1,44 +1,55 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login/Registro Admin</title>
-  <link rel="stylesheet" href="admin-login.component.css">
-</head>
-<body>
-  <div class="screen screen-login">
-    <div class="overlay">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <h2>¡Hola de Nuevo!</h2>
-        <p>Rellena este formulario con tus credenciales</p>
-        <div class="form-group-row">
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <div class="col-md-6 image-side p-0">
+      <img src="https://media.licdn.com/dms/image/C4E1BAQFMFwYari_ypg/company-background_10000/0/1624299795122/etesla_cover?e=2147483647&v=beta&t=NyetGL7yHTlwqRJw9P0YBK6LDAImq6gEKbQfqgzFvv8" alt="Your image description" class="img-fluid h-100 w-100">
+    </div>
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <div class="w-75">
+        <h2>Iniciar Sesión</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" formControlName="nombre" placeholder="Ingresa tu nombre" (keypress)="validateAlpha($event)">
-            <div *ngIf="loginForm.get('nombre')?.invalid && loginForm.get('nombre')?.touched">
-              <small *ngIf="loginForm.get('nombre')?.errors?.['required']">El nombre es requerido.</small>
-              <small *ngIf="loginForm.get('nombre')?.errors?.['maxlength']">El nombre no puede tener más de 10 caracteres.</small>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" class="form-control" formControlName="nombre" (keypress)="validateAlpha($event)">
+            <div *ngIf="loginForm.controls['nombre'].invalid && (loginForm.controls['nombre'].dirty || loginForm.controls['nombre'].touched)" class="text-danger">
+              <div *ngIf="loginForm.controls['nombre'].errors?.['required']">El nombre es requerido.</div>
+              <div *ngIf="loginForm.controls['nombre'].errors?.['pattern']">Solo se permiten letras.</div>
+              <div *ngIf="loginForm.controls['nombre'].errors?.['maxlength']">Máximo 10 caracteres.</div>
             </div>
           </div>
-        </div>
-        <div class="form-group-row">
           <div class="form-group">
-            <label for="contraseña">Contraseña:</label>
-            <input type="password" id="contraseña" formControlName="contraseña" placeholder="**********">
-            <div *ngIf="loginForm.get('contraseña')?.invalid && loginForm.get('contraseña')?.touched">
-              <small *ngIf="loginForm.get('contraseña')?.errors?.['required']">La contraseña es requerida.</small>
-              <small *ngIf="loginForm.get('contraseña')?.errors?.['minlength']">La contraseña debe tener 8 caracteres.</small>
-              <small *ngIf="loginForm.get('contraseña')?.errors?.['maxlength']">La contraseña debe tener 8 caracteres.</small>
+            <label for="branch">Sucursal</label>
+            <select class="form-control" id="branch" formControlName="branch">
+              <option value="" disabled selected>Selecciona una Opción</option>
+              <option value="1">Socursal Veracruz</option>
+              <option value="2">Socursal Puebla</option>
+              <option value="3">Socursal CDMX</option>
+            </select>
+            <div *ngIf="loginForm.controls['branch'].invalid && (loginForm.controls['branch'].dirty || loginForm.controls['branch'].touched)" class="text-danger">
+              <div *ngIf="loginForm.controls['branch'].errors?.['required']">La sucursal es requerida.</div>
             </div>
           </div>
+          <div class="form-group">
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" class="form-control" formControlName="contraseña">
+            <div *ngIf="loginForm.controls['contraseña'].invalid && (loginForm.controls['contraseña'].dirty || loginForm.controls['contraseña'].touched)" class="text-danger">
+              <div *ngIf="loginForm.controls['contraseña'].errors?.['required']">La contraseña es requerida.</div>
+              <div *ngIf="loginForm.controls['contraseña'].errors?.['minlength']">Mínimo 8 caracteres.</div>
+              <div *ngIf="loginForm.controls['contraseña'].errors?.['maxlength']">Máximo 8 caracteres.</div>
+            </div>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" id="rememberMe" class="form-check-input" formControlName="rememberMe">
+            <label for="rememberMe" class="form-check-label">Recuérdame</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+        </form>
+        <div class="mt-3">
+          <a href="#" class="text-primary">Olvidé mi contraseña</a>
         </div>
-        <div class="buttons">
-          <button type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
-          <button type="button" [routerLink]="['/AdminRegistro']">Registrarse</button>
+        <div class="mt-3">
+          <a href="#" class="text-primary" routerLink="/AdminRegistro">No estás registrado? Regístrate</a>
         </div>
-      </form>
+      </div>
     </div>
   </div>
-</body>
-</html>
+</div>
