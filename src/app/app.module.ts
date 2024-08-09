@@ -23,6 +23,13 @@ import { GestionarUsuariosComponent } from './componentes/gestionar-usuarios/ges
 import { ReporteVentasComponent } from './componentes/reporte-ventas/reporte-ventas.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { LayoutComponent } from './componentes/layout/layout.component';
+import { DetalleResidenciaComponent } from './componentes/detalle-residencia/detalle-residencia.component';
+import { DetalleComercioComponent } from './componentes/detalle-comercio/detalle-comercio.component';
+import { DetalleIndustriaComponent } from './componentes/detalle-industria/detalle-industria.component';
+import { DetalleReporteComponent } from './componentes/detalle-reporte/detalle-reporte.component';
+import { DetalleUsuarioComponent } from './componentes/detalle-usuario/detalle-usuario.component';
+import { DetalleClienteComponent } from './componentes/detalle-cliente/detalle-cliente.component';
+import { VistaCotizacionComponent } from './componentes/vista-cotizacion/vista-cotizacion.component';
 
 
 
@@ -47,6 +54,13 @@ import { LayoutComponent } from './componentes/layout/layout.component';
     ReporteVentasComponent,
     HeaderComponent,
     LayoutComponent,
+    DetalleResidenciaComponent,
+    DetalleComercioComponent,
+    DetalleIndustriaComponent,
+    DetalleReporteComponent,
+    DetalleUsuarioComponent,
+    DetalleClienteComponent,
+    VistaCotizacionComponent,
   ],
   imports: [
     BrowserModule,

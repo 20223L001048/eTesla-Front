@@ -1,0 +1,119 @@
+<div class="title-container">
+    <h2 class="decorated-title">Detalle de Reporte</h2>
+</div>
+            <div class="content">
+                <div class="left-section">
+                    <div class="chart-grid">
+                        <div class="chart-container">
+                            <canvas id="chart1"></canvas>
+                            <p class="chart-label">Reporte</p>
+                            <ul class="chart-legend">
+                                <li><span class="legend-color color-venta"></span>Venta</li>
+                                <li><span class="legend-color color-administrativo"></span>Administrativo</li>
+                                <li><span class="legend-color color-vendedores"></span>Vendedores</li>
+                            </ul>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart2"></canvas>
+                            <p class="chart-label">Planes</p>
+                            <ul class="chart-legend">
+                                <li><span class="legend-color color-residencial"></span>Residencial</li>
+                                <li><span class="legend-color color-comercial"></span>Comercial</li>
+                                <li><span class="legend-color color-industrial"></span>Industrial</li>
+                            </ul>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart3"></canvas>
+                            <p class="chart-label">Regiones</p>
+                            <ul class="chart-legend">
+                                <li><span class="legend-color color-veracruz"></span>Veracruz</li>
+                                <li><span class="legend-color color-cdmx"></span>CDMX</li>
+                                <li><span class="legend-color color-puebla"></span>Puebla</li>
+                            </ul>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart4"></canvas>
+                            <p class="chart-label">Usuarios</p>
+                            <ul class="chart-legend">
+                                <li><span class="legend-color color-administradores"></span>Administradores</li>
+                                <li><span class="legend-color color-vendedores"></span>Vendedores</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <div class="date-group">
+                        <div class="form-group">
+                            <label for="fecha-inicio">Fecha de Inicio</label>
+                            <input type="date" id="fecha-inicio">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-fin">Fecha de Fin</label>
+                            <input type="date" id="fecha-fin">
+                        </div>
+                    </div>
+
+                    <div class="observation-section">
+                        <h3>Observación</h3>
+                        <textarea placeholder="Añade una Observación......."></textarea>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="approve-button">Aprobar</button>
+                        <button class="reject-button">Rechazar</button>
+                    </div>
+                    
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Gráficos estáticos con Chart.js
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const ctx3 = document.getElementById('chart3').getContext('2d');
+        const ctx4 = document.getElementById('chart4').getContext('2d');
+
+        new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['Venta', 'Administrativo', 'Vendedores'],
+                datasets: [{
+                    data: [30, 40, 30],
+                    backgroundColor: ['#adb5bd', '#6c757d', '#343a40']
+                }]
+            }
+        });
+
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Residencial', 'Comercial', 'Industrial'],
+                datasets: [{
+                    data: [40, 35, 25],
+                    backgroundColor: ['#adb5bd', '#6c757d', '#343a40']
+                }]
+            }
+        });
+
+        new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Veracruz', 'CDMX', 'Puebla'],
+                datasets: [{
+                    data: [30, 50, 20],
+                    backgroundColor: ['#adb5bd', '#6c757d', '#343a40']
+                }]
+            }
+        });
+
+        new Chart(ctx4, {
+            type: 'pie',
+            data: {
+                labels: ['Administradores', 'Vendedores'],
+                datasets: [{
+                    data: [60, 40],
+                    backgroundColor: ['#adb5bd', '#6c757d']
+                }]
+            }
+        });
+    </script>

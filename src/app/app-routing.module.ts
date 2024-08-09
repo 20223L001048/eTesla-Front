@@ -17,6 +17,13 @@ import { GestionarUsuariosComponent } from './componentes/gestionar-usuarios/ges
 import { ReporteVentasComponent } from './componentes/reporte-ventas/reporte-ventas.component';
 import { VerHistorialComponent } from './componentes/ver-historial/ver-historial.component';
 import { LayoutComponent } from './componentes/layout/layout.component';
+import { DetalleComercioComponent } from './componentes/detalle-comercio/detalle-comercio.component';
+import { DetalleResidenciaComponent } from './componentes/detalle-residencia/detalle-residencia.component';
+import { DetalleIndustriaComponent } from './componentes/detalle-industria/detalle-industria.component';
+import { DetalleReporteComponent } from './componentes/detalle-reporte/detalle-reporte.component';
+import { DetalleUsuarioComponent } from './componentes/detalle-usuario/detalle-usuario.component';
+import { DetalleClienteComponent } from './componentes/detalle-cliente/detalle-cliente.component';
+import { VistaCotizacionComponent } from './componentes/vista-cotizacion/vista-cotizacion.component';
 
 const routes: Routes = [
   { path: '', component: BienvenidaComponent }, 
@@ -38,7 +45,14 @@ const routes: Routes = [
       { path: 'GestionarProductos', component: GestionarProductosComponent },
       { path: 'GestionarUsuarios', component: GestionarUsuariosComponent },
       { path: 'ReporteVentas', component: ReporteVentasComponent },
-      { path: 'VerHistorial', component: VerHistorialComponent }
+      { path: 'VerHistorial', component: VerHistorialComponent },
+      { path: 'DetalleComerio', component: DetalleComercioComponent},
+      { path: 'DetalleResidencia', component: DetalleResidenciaComponent},
+      { path: 'DetalleIndustria', component: DetalleIndustriaComponent},
+      { path: 'DetalleReporte', component: DetalleReporteComponent},
+      { path: 'detalleUsuario', component: DetalleUsuarioComponent},
+      { path: 'detalleCliente', component: DetalleClienteComponent},
+      { path: 'vistaCotizacion', component: VistaCotizacionComponent}
     ]
   },
   { path: '**', redirectTo: '' }
